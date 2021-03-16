@@ -53,7 +53,7 @@ if not EXIST %app%\added-profile (
     set instance_escaped=%instance:\=\\%
     
     %jq% ".profiles +=%snippet%" %APPDATA%\.minecraft\launcher_profiles.json > %app%\launcher_profiles.json
-    %jq% ".profiles.kevin-nation.gameDir =""%instance_escaped%""" %app%\launcher_profiles.json > %app%\launcher_profiles_fixed_path.json
+    %jq% ".profiles.kevinnation.gameDir =""%instance_escaped%""" %app%\launcher_profiles.json > %app%\launcher_profiles_fixed_path.json
     @REM copy %app%\launcher_profiles_fixed_path.json %APPDATA%\.minecraft\launcher_profiles.json
 )
 
