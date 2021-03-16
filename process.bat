@@ -24,7 +24,7 @@ IF not EXIST %rclone-config% (
     bitsadmin.exe /transfer DownloadingRcloneConfig "https://raw.githubusercontent.com/savvasdalkitsis/minecraft-modpack-kevin-nation/%modpack-version%/rclone.conf" %rclone-config%
 )
 
-%rclone% sync -vP --config %rclone-config% b2:kevin-nation-modpack/mods %instance%/mods
+%rclone% sync -vP --config=%rclone-config% b2:kevin-nation-modpack/mods %instance%/mods
 %rclone% copy -vP %instance%/persistentmods %instance%/mods
-%rclone% copy -vP --config %rclone-config% b2:kevin-nation-modpack/config %instance%/config
-%rclone% copy -vP --config %rclone-config% b2:kevin-nation-modpack/resourcepacks %instance%/resourcepacks
+%rclone% copy -vP --config=%rclone-config% b2:kevin-nation-modpack/config %instance%/config
+%rclone% copy -vP --config=%rclone-config% b2:kevin-nation-modpack/resourcepacks %instance%/resourcepacks
