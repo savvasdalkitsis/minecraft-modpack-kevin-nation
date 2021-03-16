@@ -12,6 +12,11 @@ if not exist %app% mkdir %app%
 if not exist %conf% mkdir %conf%
 if not exist %instance% mkdir %instance%
 
+if EXIST %app%\last-version-%modpack-version% (
+    EXIT
+)
+echo "">%app%\last-version-%modpack-version%
+
 IF not EXIST %rclone-zip% (
     bitsadmin.exe /transfer DownloadingRclone "https://downloads.rclone.org/%rclone-version%/rclone-%rclone-version%-windows-amd64.zip" %rclone-zip%
 )
