@@ -52,7 +52,7 @@ if not EXIST %app%\added-profile (
     set /p snippet=<%app%\profile-snippet.json
     
     %jq% ".profiles +=%snippet%" %APPDATA%\.minecraft\launcher_profiles.json > %app%\launcher_profiles.json
-    %jq% ".profiles.kevin-nation.gameDir ='%instance%'" %app%\launcher_profiles.json > %app%\launcher_profiles_fixed_path.json
+    %jq% ".profiles.kevin-nation.gameDir =""%instance%""" %app%\launcher_profiles.json > %app%\launcher_profiles_fixed_path.json
     @REM copy %app%\launcher_profiles_fixed_path.json %APPDATA%\.minecraft\launcher_profiles.json
 )
 
