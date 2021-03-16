@@ -34,9 +34,12 @@ if not EXIST %app%\last-version-%modpack-version% (
     )
 
     %rclone% sync -vP --config=%rclone-config% b2:kevin-nation-modpack/mods %instance%\mods
-    %rclone% copy -vP %instance%/persistentmods %instance%/mods
     %rclone% copy -vP --config=%rclone-config% b2:kevin-nation-modpack/config %instance%\config
     %rclone% copy -vP --config=%rclone-config% b2:kevin-nation-modpack/resourcepacks %instance%\resourcepacks
+
+    if EXIST %instance%/persistentmods (
+        %rclone% copy -vP %instance%/persistentmods %instance%/mods
+    )
     
     curl -L "https://raw.githubusercontent.com/savvasdalkitsis/minecraft-modpack-kevin-nation/%modpack-version%/windows/minecraftinstance.json" > %instance%\minecraftinstance.json
 )
