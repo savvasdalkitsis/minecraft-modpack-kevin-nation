@@ -47,7 +47,7 @@ if not EXIST %app%\added-profile (
     curl -L "https://raw.githubusercontent.com/savvasdalkitsis/minecraft-modpack-kevin-nation/%modpack-version%/windows/profile-snippet.json" > %app%\profile-snippet.json
 
     set /p snippet=<%app%\profile-snippet.json
-    set snippet=%snippet:"=\\"%
+    set snippet=%snippet:"=""%
     %jq% '.profiles +%snippet%' %APPDATA%\.minecraft\launcher_profiles.json > %app%\launcher_profiles.json
 )
 
