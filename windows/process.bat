@@ -41,7 +41,7 @@ if not EXIST %app%\last-version-%modpack-version% (
     curl -L "https://raw.githubusercontent.com/savvasdalkitsis/minecraft-modpack-kevin-nation/%modpack-version%/windows/minecraftinstance.json" > %instance%\minecraftinstance.json
 )
 
-if not EXIST %app%\added-profile(
+if not EXIST %app%\added-profile (
     echo "">%app%\added-profile
 
     curl -L "https://raw.githubusercontent.com/savvasdalkitsis/minecraft-modpack-kevin-nation/%modpack-version%/windows/profile-snippet.json" > %app%\profile-snippet.json
