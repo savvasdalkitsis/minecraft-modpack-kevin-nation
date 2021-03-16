@@ -50,9 +50,10 @@ if not EXIST %app%\added-profile (
     curl -L "https://raw.githubusercontent.com/savvasdalkitsis/minecraft-modpack-kevin-nation/%modpack-version%/windows/profile-snippet.json" > %app%\profile-snippet.json
 
     set /p snippet=<%app%\profile-snippet.json
+    set instance_escaped=%instance:\=\\%
     
     %jq% ".profiles +=%snippet%" %APPDATA%\.minecraft\launcher_profiles.json > %app%\launcher_profiles.json
-    %jq% ".profiles.kevin-nation.gameDir =""%instance%""" %app%\launcher_profiles.json > %app%\launcher_profiles_fixed_path.json
+    %jq% ".profiles.kevin-nation.gameDir =""%instance_escaped%""" %app%\launcher_profiles.json > %app%\launcher_profiles_fixed_path.json
     @REM copy %app%\launcher_profiles_fixed_path.json %APPDATA%\.minecraft\launcher_profiles.json
 )
 
