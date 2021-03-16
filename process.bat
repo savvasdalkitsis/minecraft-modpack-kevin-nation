@@ -13,7 +13,7 @@ if not exist %conf% mkdir %conf%
 if not exist %instance% mkdir %instance%
 
 if EXIST %app%\last-version-%modpack-version% (
-    EXIT
+    EXIT \b
 )
 echo "">%app%\last-version-%modpack-version%
 
