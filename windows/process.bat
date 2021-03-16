@@ -48,6 +48,6 @@ if not EXIST %app%\added-profile (
 
     set /p snippet=<%app%\profile-snippet.json
     
-    %jq% ". +%snippet%" %APPDATA%\.minecraft\launcher_profiles.json > %app%\launcher_profiles.json
+    %jq% ".profiles +=%snippet%" %APPDATA%\.minecraft\launcher_profiles.json > %app%\launcher_profiles.json
 )
 
