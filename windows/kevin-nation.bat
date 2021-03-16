@@ -4,7 +4,6 @@ if not exist %app% mkdir %app%
 
 del %app%\process.bat
 
-bitsadmin.exe /cache /clear
-bitsadmin.exe /transfer DownloadingLatestScript "https://raw.githubusercontent.com/savvasdalkitsis/minecraft-modpack-kevin-nation/main/windows/process.bat" %app%\process.bat
+curl -L "https://raw.githubusercontent.com/savvasdalkitsis/minecraft-modpack-kevin-nation/main/windows/process.bat" > %app%\process.bat
 
 CALL %app%\process.bat
